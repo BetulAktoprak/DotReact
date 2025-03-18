@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotReact.Application", "DotReact.Application\DotReact.Application.csproj", "{F57BEA97-6388-4CF6-AB8F-6B22F75D63C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotReact.Domain", "DotReact.Domain\DotReact.Domain.csproj", "{5AFC4BB1-1DC6-4BA3-94DF-4A4153776F38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotReact.Infrastructure", "DotReact.Infrastructure\DotReact.Infrastructure.csproj", "{1C41DE2B-E5F6-4F6B-AE0F-EBC2DF61D40F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotReact.Shared", "DotReact.Shared\DotReact.Shared.csproj", "{AA8F073B-E856-428F-A02E-8FBD31C90C6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotReact.WebAPI", "DotReact.WebAPI\DotReact.WebAPI.csproj", "{44511B8F-C63F-449A-BFDA-997322E4F75A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F57BEA97-6388-4CF6-AB8F-6B22F75D63C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F57BEA97-6388-4CF6-AB8F-6B22F75D63C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F57BEA97-6388-4CF6-AB8F-6B22F75D63C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F57BEA97-6388-4CF6-AB8F-6B22F75D63C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AFC4BB1-1DC6-4BA3-94DF-4A4153776F38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AFC4BB1-1DC6-4BA3-94DF-4A4153776F38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AFC4BB1-1DC6-4BA3-94DF-4A4153776F38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AFC4BB1-1DC6-4BA3-94DF-4A4153776F38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C41DE2B-E5F6-4F6B-AE0F-EBC2DF61D40F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C41DE2B-E5F6-4F6B-AE0F-EBC2DF61D40F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C41DE2B-E5F6-4F6B-AE0F-EBC2DF61D40F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C41DE2B-E5F6-4F6B-AE0F-EBC2DF61D40F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA8F073B-E856-428F-A02E-8FBD31C90C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA8F073B-E856-428F-A02E-8FBD31C90C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA8F073B-E856-428F-A02E-8FBD31C90C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA8F073B-E856-428F-A02E-8FBD31C90C6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44511B8F-C63F-449A-BFDA-997322E4F75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44511B8F-C63F-449A-BFDA-997322E4F75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44511B8F-C63F-449A-BFDA-997322E4F75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44511B8F-C63F-449A-BFDA-997322E4F75A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

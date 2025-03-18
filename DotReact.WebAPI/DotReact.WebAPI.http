@@ -1,0 +1,6 @@
+@DotReact.WebAPI_HostAddress = http://localhost:5200
+
+GET {{DotReact.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
