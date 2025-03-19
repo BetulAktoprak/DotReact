@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Validations\" />
-    <Folder Include="Features\Products\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotReact.Domain\DotReact.Domain.csproj" />
+    <ProjectReference Include="..\DotReact.Infrastructure\DotReact.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

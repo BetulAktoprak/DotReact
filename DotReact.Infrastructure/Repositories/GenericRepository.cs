@@ -1,15 +1,16 @@
 ﻿using DotReact.Domain.Abstractions;
 using DotReact.Domain.Interfaces;
+using DotReact.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace DotReact.Infrastructure.Repositories;
 public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
 {
-    private readonly DbContext _context;
+    private readonly AppDbContext _context;
     private readonly DbSet<T> _dbSet;
 
-    public GenericRepository(DbContext context)
+    public GenericRepository(AppDbContext context)
     {
         _context = context;
         _dbSet = _context.Set<T>();
@@ -28,7 +29,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
 
     public async Task<T?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
     {
-        return await _dbSet.FindAsync(id, cancellationToken);
+        return await _dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
     public void Update(T entity) => _dbSet.Update(entity);

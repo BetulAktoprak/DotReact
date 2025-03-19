@@ -18,7 +18,8 @@ builder.Services.AddApplicationServices();
 //    options.UseSqlite(connectionString);
 //});
 
-builder.Services.AddInfrastructureServices(builder.Configuration.GetConnectionString("defaultConnection")!);
+var connectionString = builder.Configuration.GetConnectionString("defaultConnection")!;
+builder.Services.AddInfrastructureServices(connectionString);
 
 var app = builder.Build();
 

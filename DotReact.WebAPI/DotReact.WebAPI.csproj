@@ -24,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DotReact.Application\DotReact.Application.csproj" />
     <ProjectReference Include="..\DotReact.Domain\DotReact.Domain.csproj" />
     <ProjectReference Include="..\DotReact.Infrastructure\DotReact.Infrastructure.csproj" />
   </ItemGroup>

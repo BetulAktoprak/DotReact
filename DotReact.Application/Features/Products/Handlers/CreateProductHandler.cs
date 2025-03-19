@@ -26,7 +26,7 @@ public sealed class CreateProductHandler : IRequestHandler<CreateProductCommand,
             IsActive = request.IsActive,
         };
 
-        await _productRepository.AddProductAsync(product);
+        await _productRepository.AddAsync(product);
         return product;
     }
 }
