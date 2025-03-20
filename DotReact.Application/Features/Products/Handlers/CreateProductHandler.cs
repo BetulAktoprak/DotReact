@@ -4,14 +4,13 @@ using DotReact.Domain.Interfaces;
 using MediatR;
 
 namespace DotReact.Application.Features.Products.Handlers;
-public sealed class CreateProductHandler : IRequestHandler<CreateProductCommand, Product>
+public sealed class CreateProductHandler(
+    IProductRepository productRepository,
+    IUnitOfWork unitOfWork
+    ) : IRequestHandler<CreateProductCommand, Product>
 {
-    private readonly IProductRepository _productRepository;
-
-    public CreateProductHandler(IProductRepository productRepository)
-    {
-        _productRepository = productRepository;
-    }
+    private readonly IProductRepository _productRepository = productRepository;
+    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<Product> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
@@ -24,9 +23,12 @@ public sealed class CreateProductHandler : IRequestHandler<CreateProductCommand,
             Stock = request.Stock,
             ImageUrl = request.ImageUrl,
             IsActive = request.IsActive,
+            CreatedDate = DateTime.UtcNow
         };
 
         await _productRepository.AddAsync(product);
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+
         return product;
     }
 }

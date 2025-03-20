@@ -2,4 +2,4 @@
 using MediatR;
 
 namespace DotReact.Application.Features.Products.Queries;
-public sealed record GetProductByIdQuery(Guid Id) : IRequest<Product>;
+public sealed record GetAllProductsQuery() : IRequest<List<Product>>;

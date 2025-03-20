@@ -4,17 +4,17 @@ using DotReact.Domain.Interfaces;
 using MediatR;
 
 namespace DotReact.Application.Features.Products.Handlers;
-public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, Product>
+public sealed class GetProductByIdQueryHandler(IProductRepository productRepository) : IRequestHandler<GetProductByIdQuery, Product>
 {
-    private readonly IProductRepository _productRepository;
 
-    public GetProductByIdQueryHandler(IProductRepository productRepository)
-    {
-        _productRepository = productRepository;
-    }
 
     public async Task<Product> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _productRepository.GetByIdAsync(request.ProductId, cancellationToken);
+        var product = await productRepository.GetByIdAsync(request.Id, cancellationToken);
+        if (product is null)
+        {
+            throw new KeyNotFoundException("Ürün bulunamadı.");
+        }
+        return product;
     }
 }

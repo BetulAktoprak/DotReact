@@ -13,9 +13,11 @@ public class UnitOfWork : IUnitOfWork
         _productRepository = productRepository;
     }
 
+    public IProductRepository ProductRepository => _productRepository ??= new ProductRepository(_context);
+
     public async ValueTask DisposeAsync()
         => await _context.DisposeAsync();
 
-    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         => await _context.SaveChangesAsync(cancellationToken);
 }
