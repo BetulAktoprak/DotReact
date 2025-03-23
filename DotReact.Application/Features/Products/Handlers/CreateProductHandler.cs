@@ -4,7 +4,7 @@ using DotReact.Domain.Interfaces;
 using MediatR;
 
 namespace DotReact.Application.Features.Products.Handlers;
-public sealed class CreateProductHandler(
+internal sealed class CreateProductHandler(
     IProductRepository productRepository,
     IUnitOfWork unitOfWork
     ) : IRequestHandler<CreateProductCommand, Product>

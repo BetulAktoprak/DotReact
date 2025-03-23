@@ -35,5 +35,17 @@ public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
         return await _dbSet.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
     }
 
+    public async Task<(List<T> Items, int TotalCount)> GetPagedAsync(int pageNumber, int pageSize, CancellationToken cancellationToken)
+    {
+        var totalCount = await _dbSet.CountAsync(cancellationToken);
+        var items = await _dbSet
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync(cancellationToken);
+
+        return (items, totalCount);
+    }
+
     public void Update(T entity) => _dbSet.Update(entity);
+
 }
