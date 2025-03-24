@@ -2,22 +2,13 @@
 using DotReact.Infrastructure.Context;
 
 namespace DotReact.Infrastructure.Repositories;
-public class UnitOfWork : IUnitOfWork
+public class UnitOfWork(AppDbContext context, IProductRepository productRepository) : IUnitOfWork
 {
-    private readonly AppDbContext _context;
-    private IProductRepository _productRepository;
-
-    public UnitOfWork(AppDbContext context, IProductRepository productRepository)
-    {
-        _context = context;
-        _productRepository = productRepository;
-    }
-
-    public IProductRepository ProductRepository => _productRepository ??= new ProductRepository(_context);
+    public IProductRepository ProductRepository => productRepository ??= new ProductRepository(context);
 
     public async ValueTask DisposeAsync()
-        => await _context.DisposeAsync();
+        => await context.DisposeAsync();
 
     public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
-        => await _context.SaveChangesAsync(cancellationToken);
+        => await context.SaveChangesAsync(cancellationToken);
 }

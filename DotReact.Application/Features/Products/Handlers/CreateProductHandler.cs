@@ -9,8 +9,6 @@ internal sealed class CreateProductHandler(
     IUnitOfWork unitOfWork
     ) : IRequestHandler<CreateProductCommand, Product>
 {
-    private readonly IProductRepository _productRepository = productRepository;
-    private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
     public async Task<Product> Handle(CreateProductCommand request, CancellationToken cancellationToken)
     {
@@ -26,8 +24,8 @@ internal sealed class CreateProductHandler(
             CreatedDate = DateTime.UtcNow
         };
 
-        await _productRepository.AddAsync(product);
-        await _unitOfWork.SaveChangesAsync(cancellationToken);
+        await productRepository.AddAsync(product);
+        await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return product;
     }

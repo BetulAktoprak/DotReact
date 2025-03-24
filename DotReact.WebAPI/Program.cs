@@ -1,5 +1,6 @@
 using DotReact.Application;
 using DotReact.Infrastructure;
+using DotReact.WebAPI.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,15 +16,18 @@ builder.Services.AddApplicationServices();
 
 var app = builder.Build();
 
+app.MapOpenApi();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/openapi/v1.json", "Demo API");
     });
 }
+
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

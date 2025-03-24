@@ -3,11 +3,6 @@ using DotReact.Domain.Interfaces;
 using DotReact.Infrastructure.Context;
 
 namespace DotReact.Infrastructure.Repositories;
-public class ProductRepository : GenericRepository<Product>, IProductRepository
+public class ProductRepository(AppDbContext context) : GenericRepository<Product>(context), IProductRepository
 {
-    private readonly AppDbContext _context;
-    public ProductRepository(AppDbContext context) : base(context)
-    {
-        _context = context;
-    }
 }

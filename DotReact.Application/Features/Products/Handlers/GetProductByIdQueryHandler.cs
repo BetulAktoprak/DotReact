@@ -11,7 +11,7 @@ internal sealed class GetProductByIdQueryHandler(IProductRepository productRepos
         var product = await productRepository.GetByIdAsync(request.Id, cancellationToken);
         if (product is null)
         {
-            throw new KeyNotFoundException("Ürün bulunamadı.");
+            throw new InvalidOperationException("Ürün bulunamadı.");
         }
         return product;
     }
