@@ -12,6 +12,17 @@ builder.Services.AddOpenApi();
 var connectionString = builder.Configuration.GetConnectionString("defaultConnection")!;
 builder.Services.AddInfrastructureServices(connectionString);
 
+const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+builder.Services.AddCors(options => {
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+    policy => {
+        policy.WithOrigins("http://localhost:3000")
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
+
 builder.Services.AddApplicationServices();
 
 var app = builder.Build();
@@ -30,6 +41,8 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 
