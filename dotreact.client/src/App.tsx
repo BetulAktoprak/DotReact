@@ -1,12 +1,11 @@
-import ProductList from "./components/products/ProductList"
+import RouterConfig from "./config/RouterConfig"
 
 
 function App() {
 
   return (
     <>
-      <h1>React.js</h1>
-      <ProductList />
+      <RouterConfig />
     </>
   )
 }
