@@ -13,6 +13,7 @@ public static class DependencyInjection
         options.UseSqlite(connectionString));
 
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 }

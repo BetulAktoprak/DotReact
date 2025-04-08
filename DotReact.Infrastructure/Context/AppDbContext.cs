@@ -5,5 +5,6 @@ namespace DotReact.Infrastructure.Context;
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
     public DbSet<Product> Products { get; set; } = null!;
+    public DbSet<User> Users { get; set; } = null!;
 
 }

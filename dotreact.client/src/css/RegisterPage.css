@@ -1,5 +1,5 @@
 .register{
-    background-image: url("../images/2.jpg");
+    background-image: url("../images/15.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -19,5 +19,15 @@
     align-items: center;
     justify-content: center;
     border-radius: 5px; 
-    box-shadow: 1px 2px 3px lightgrey;
+    box-shadow: 5px 5px 10px lightgrey;
+    background-color: rgb(240, 237, 236);
+    color: white
+}
+
+.form-h3{
+    font-weight: bolder;
+    font-size: 25px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    color: rgb(243, 111, 3);
 }
