@@ -20,4 +20,14 @@ public class UsersController(IMediator mediator) : ApiController(mediator)
 
         return BadRequest(result.Error);
     }
+    [HttpPost]
+    public async Task<IActionResult> Login(LoginUserDto loginUserDto)
+    {
+        var result = await _mediator.Send(new LoginUserCommand(loginUserDto));
+
+        if (result.IsSuccess)
+            return Ok(new { Token = result.Value });
+
+        return Unauthorized(new { Message = result.Error });
+    }
 }

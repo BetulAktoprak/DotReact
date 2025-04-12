@@ -9,17 +9,17 @@ import { registerPageSchema } from "../schemas/RegisterPageSchema";
 import api from "../services/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import "../css/RegisterPage.css";
 
 function RegisterPage() {
-
   const navigate = useNavigate();
 
   const submit = async (values: any) => {
     try {
       const response = await api.post("/users/register", values);
-      if(response){
+      if (response) {
         toast.success("Kayıt başarılı.");
-        resetForm();
+        clear();
         navigate("/login");
         console.log(response.data);
       }
@@ -27,21 +27,21 @@ function RegisterPage() {
       toast.error("Kayıt sırasında hata oluştu.");
       console.log(error);
     }
-  }
+  };
 
   const { values, handleSubmit, handleChange, errors, resetForm } = useFormik({
     initialValues: {
-      username: '',
-      email: '',
-      password: ''
+      username: "",
+      email: "",
+      password: "",
     },
     onSubmit: submit,
-    validationSchema: registerPageSchema
+    validationSchema: registerPageSchema,
   });
 
   const clear = () => {
     resetForm();
-  }
+  };
 
   return (
     <div className="register">
@@ -64,7 +64,11 @@ function RegisterPage() {
               ),
             },
           }}
-          helperText={errors.username && <span style={{ color: 'red' }} >{errors.username}</span>}
+          helperText={
+            errors.username && (
+              <span style={{ color: "red" }}>{errors.username}</span>
+            )
+          }
         />
         <TextField
           id="email"
@@ -83,7 +87,9 @@ function RegisterPage() {
               ),
             },
           }}
-          helperText={errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}
+          helperText={
+            errors.email && <span style={{ color: "red" }}>{errors.email}</span>
+          }
         />
         <TextField
           id="password"
@@ -103,7 +109,11 @@ function RegisterPage() {
               ),
             },
           }}
-          helperText={errors.password && <span style={{ color: 'red' }}>{errors.password}</span>}
+          helperText={
+            errors.password && (
+              <span style={{ color: "red" }}>{errors.password}</span>
+            )
+          }
         />
         <div>
           <Button
@@ -113,7 +123,7 @@ function RegisterPage() {
             variant="contained"
             color="warning"
           >
-            Kaydol
+            Kayıt Ol
           </Button>
           <Button
             size="small"

@@ -1,5 +1,6 @@
 using DotReact.Application;
 using DotReact.Infrastructure;
+using DotReact.Infrastructure.Settings;
 using DotReact.WebAPI.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,11 +13,15 @@ builder.Services.AddOpenApi();
 var connectionString = builder.Configuration.GetConnectionString("defaultConnection")!;
 builder.Services.AddInfrastructureServices(connectionString);
 
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
+
 const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
-builder.Services.AddCors(options => {
+builder.Services.AddCors(options =>
+{
     options.AddPolicy(name: MyAllowSpecificOrigins,
-    policy => {
+    policy =>
+    {
         policy.WithOrigins("http://localhost:3000")
             .AllowAnyMethod()
             .AllowAnyHeader();

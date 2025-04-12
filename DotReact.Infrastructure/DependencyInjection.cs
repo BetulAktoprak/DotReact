@@ -1,6 +1,8 @@
-﻿using DotReact.Domain.Interfaces;
+﻿using DotReact.Application.Services;
+using DotReact.Domain.Interfaces;
 using DotReact.Infrastructure.Context;
 using DotReact.Infrastructure.Repositories;
+using DotReact.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +16,7 @@ public static class DependencyInjection
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
 }

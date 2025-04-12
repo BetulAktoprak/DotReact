@@ -13,7 +13,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotReact.Domain\DotReact.Domain.csproj" />
-    <ProjectReference Include="..\DotReact.Infrastructure\DotReact.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
